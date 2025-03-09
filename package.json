@@ -11,5 +11,8 @@
   "license": "MIT",
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "functional-red-black-tree": "^1.0.1"
   }
 }
