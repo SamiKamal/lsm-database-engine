@@ -1,0 +1,15 @@
+{
+  "name": "lsm-database-engine",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "LSM database engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "author": "Sami Ibrahim",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
