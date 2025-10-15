@@ -1,10 +1,10 @@
-import MemTable from '../'
+import MemTable from '../index';
 
 describe("Memtable", () => {
-  let memtable;
+  let memtable: MemTable<string, string>;
 
   beforeEach(() => {
-    memtable = new MemTable(5);
+    memtable = new MemTable<string, string>(5);
   });
 
   // ---- 1. Initialization ----
@@ -85,8 +85,8 @@ describe("Memtable", () => {
   });
 
   test("should handle inserting a null or undefined value", () => {
-    expect(() => memtable.put("key", null)).not.toThrow();
-    expect(() => memtable.put("key", undefined)).not.toThrow();
+    expect(() => memtable.put("key", null as any)).not.toThrow();
+    expect(() => memtable.put("key", undefined as any)).not.toThrow();
   });
 
   test("should handle extremely large values", () => {
