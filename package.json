@@ -3,14 +3,32 @@
   "version": "1.0.0",
   "type": "module",
   "description": "LSM database engine",
-  "main": "index.js",
+  "main": "./dist/db/index.js",
+  "types": "./dist/db/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run clean && tsc",
+    "build:watch": "tsc --watch",
+    "clean": "rm -rf dist dist-test",
+    "prepublishOnly": "npm run build && npm test"
   },
+  "keywords": ["lsm", "database", "storage-engine", "typescript"],
   "author": "Sami Ibrahim",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^29.7.0"
+    "@types/functional-red-black-tree": "^1.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.7.2",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "functional-red-black-tree": "^1.0.1"
