@@ -18,10 +18,16 @@
     "clean": "rm -rf dist dist-test",
     "prepublishOnly": "npm run build && npm test"
   },
-  "keywords": ["lsm", "database", "storage-engine", "typescript"],
+  "keywords": [
+    "lsm",
+    "database",
+    "storage-engine",
+    "typescript"
+  ],
   "author": "Sami Ibrahim",
   "license": "MIT",
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
     "@types/functional-red-black-tree": "^1.0.6",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.7.2",
@@ -31,6 +37,7 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "fs-extra": "^11.3.2",
     "functional-red-black-tree": "^1.0.1"
   }
 }

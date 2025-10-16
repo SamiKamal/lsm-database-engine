@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'fs-extra';
 
 export interface SSTableOptions {
   folderPath: string;
@@ -16,7 +16,7 @@ class SSTable {
     this.#currentFile = `sst${this.#numOfFiles}.db`;
   }
 
-  create(data: Record<string, string>): void {
+  async create(data: Record<string, string>): Promise<void> {
     if (typeof data !== 'object' || Array.isArray(data) || data === null) {
       throw new Error('SSTable: data must be an object');
     }
@@ -31,7 +31,7 @@ class SSTable {
     });
 
     try {
-      fs.writeFileSync(`${this.folderPath}/${this.#currentFile}`, stringifiedData, 'utf8');
+      await fs.writeFile(`${this.folderPath}/${this.#currentFile}`, stringifiedData, 'utf8');
     } catch (err) {
       throw new Error('SSTable: Error writing file');
     }
